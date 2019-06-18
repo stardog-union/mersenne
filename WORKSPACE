@@ -2,16 +2,8 @@ workspace(name = "mersenne")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 
-lucas_version="bazel_0.24"
+lucas_version="master"
 toolchain_version="bazel_0.24"
-
-http_archive(
-    name = "toolchain",
-    urls = [
-        "https://github.com/stardog-union/toolchain/archive/%s.zip" % toolchain_version,
-    ],
-    strip_prefix = "toolchain-%s" % toolchain_version,
-)
 
 http_archive(
     name = "lucas",
@@ -19,4 +11,12 @@ http_archive(
         "https://github.com/stardog-union/lucas/archive/%s.zip" % lucas_version,
     ],
     strip_prefix = "lucas-%s" % lucas_version,
+)
+
+http_archive(
+    name = "toolchain",
+    urls = [
+        "https://github.com/stardog-union/toolchain/archive/%s.zip" % toolchain_version,
+    ],
+    strip_prefix = "toolchain-%s" % toolchain_version,
 )
