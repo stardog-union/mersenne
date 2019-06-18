@@ -1,17 +1,22 @@
 workspace(name = "mersenne")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-http_archive(
-    name = "lucas",
-    urls = [
-        "https://github.com/stardog-union/lucas/archive/master.zip",
-    ],
-    strip_prefix = "lucas-master",
-)
+
+lucas_version="bazel_0.24"
+toolchain_version="bazel_0.24"
 
 http_archive(
     name = "toolchain",
     urls = [
-        "https://github.com/stardog-union/toolchain/archive/cross_compile.zip",
+        "https://github.com/stardog-union/toolchain/archive/%s.zip" % toolchain_version,
     ],
-    strip_prefix = "toolchain-cross_compile",
+    strip_prefix = "toolchain-%s" % toolchain_version,
+)
+
+http_archive(
+    name = "lucas",
+    urls = [
+        "https://github.com/stardog-union/lucas/archive/%s.zip" % lucas_version,
+    ],
+    strip_prefix = "lucas-%s" % lucas_version,
 )
