@@ -3,7 +3,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 
 lucas_version="master"
-toolchain_version="bazel_0.24"
+toolchain_version="bazel_0.26"
 
 http_archive(
     name = "lucas",
