@@ -20,3 +20,11 @@ http_archive(
     ],
     strip_prefix = "toolchain-%s" % toolchain_version,
 )
+
+http_archive(
+    name = "toolchain-local",
+    urls = [
+        "file:///home/james/git/toolchain.tgz",
+    ],
+    strip_prefix = "toolchain",
+)
